@@ -1,0 +1,8 @@
+__pycache__\
+data\
+myenv\
+build\
+Notebook\
+ResearchBot\__pycache__\
+ResearchBot.egg-info\
+*.env
