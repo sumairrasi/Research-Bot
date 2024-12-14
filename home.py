@@ -9,7 +9,7 @@ import os
 
 def app():
     try:
-        if 'user' not in st.session_state or  not st.session_state.logged_in:
+        if 'user' not in st.session_state or not st.session_state.logged_in:
             st.error("Please log in to access this page.")
             return
 

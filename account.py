@@ -42,14 +42,9 @@ def app():
             print(f"New session ID created and saved to Redis: {st.session_state.session_id}")
 
     session_data = load_session_from_redis(st.session_state.session_id)
-    if session_data:
-        st.session_state.logged_in = session_data.get('logged_in', False)
-        st.session_state.user = session_data.get('user', None)
-        print(f"Session restored: {session_data}")
-    else:
-        redis_client.delete(st.session_state.session_id) 
+    if not session_data:  # No session found or expired
+        redis_client.delete(st.session_state.session_id)  # Clean up expired session
         st.session_state.clear()
-        print("No session data found in Redis.")
 
     st.title("Welcome to the :green[Learning Class]")
 
