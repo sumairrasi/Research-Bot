@@ -116,6 +116,6 @@ Contributions are welcome! Please submit a pull request or open an issue for dis
 
 ---
 
-For any questions or support, please feel free to contact [Me](mailto:Razi.sumairrazi585@gmail.com).
+For any questions or support, please feel free to contact me at [sumairrazi585@gmail.com](mailto:sumairrazi585@gmail.com).
 
 Happy Learning!
