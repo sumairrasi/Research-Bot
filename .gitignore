@@ -1,8 +1,15 @@
-__pycache__\
-data\
-myenv\
-build\
-Notebook\
-ResearchBot\__pycache__\
-ResearchBot.egg-info\
+# Ignore __pycache__ folders
+__pycache__/
+
+# Ignore specific directories
+data/
+myenv/
+build/
+Notebook/
+
+# Ignore specific subdirectories
+ResearchBot/__pycache__/
+ResearchBot.egg-info/
+
+# Ignore environment files
 *.env

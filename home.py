@@ -62,9 +62,9 @@ def app():
         prompt = st.chat_input("Say something")
         if prompt:
             if "agent_executer" not in st.session_state:
-                st.session_state.agent_executer = ChatModel(groq_api_key=os.environ.get('GROQ_API_KEY'),
-                                                            pinecone_api_key=os.environ.get("PINECONE_API_KEY"),
-                                                            index_name=os.environ.get("PINECONE_INDEX_NAME")).chat_main()
+                st.session_state.agent_executer = ChatModel(groq_api_key=st.secrets['GROQ_API_KEY'],
+                                                            pinecone_api_key=st.secrets["PINECONE_API_KEY"],
+                                                            index_name=st.secrets["PINECONE_INDEX_NAME"]).chat_main()
             st.session_state.messages.append({"role": "user", "content": prompt})
             st.chat_message("user", avatar="👩‍🎓").write(prompt)
 
