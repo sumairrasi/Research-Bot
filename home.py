@@ -46,9 +46,9 @@ def app():
                     if url:
                         st.info("Processing URL content...")
                         data_ingestion = DataIngestion(
-                            groq_api_key=os.environ.get('GROQ_API_KEY'),
-                            pinecone_api_key=os.environ.get("PINECONE_API_KEY"),
-                            index_name=os.environ.get("PINECONE_INDEX_NAME")
+                            groq_api_key=st.secrets['GROQ_API_KEY'],
+                            pinecone_api_key=st.secrets["PINECONE_API_KEY"],
+                            index_name=st.secrets["PINECONE_INDEX_NAME"]
                         )
                         data = data_ingestion.web_loading(url)  
                         data_load = data_ingestion.data_pipeline(data)
@@ -77,9 +77,9 @@ def app():
                 try:
                     if "agent_executer" not in st.session_state:
                         st.session_state.agent_executer = ChatModel(
-                            groq_api_key=os.environ.get('GROQ_API_KEY'),
-                            pinecone_api_key=os.environ.get("PINECONE_API_KEY"),
-                            index_name=os.environ.get("PINECONE_INDEX_NAME")
+                            groq_api_key=st.secrets['GROQ_API_KEY'],
+                            pinecone_api_key=st.secrets["PINECONE_API_KEY"],
+                            index_name=st.secrets["PINECONE_INDEX_NAME"]
                         ).chat_main()
 
                     st.session_state.messages.append({"role": "user", "content": prompt})

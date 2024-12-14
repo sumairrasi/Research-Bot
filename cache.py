@@ -7,7 +7,7 @@ load_dotenv()
 
 
 
-redis_client = redis.StrictRedis(host=os.environ.get('REDIS_HOST'), port=os.environ.get('REDIS_PORT'),password=os.environ.get('REDIS_PASSWORD'), decode_responses=True)
+redis_client = redis.StrictRedis(host=st.secrets['REDIS_HOST'], port=st.secrets['REDIS_PORT'],password=st.secrets['REDIS_PASSWORD'], decode_responses=True)
 
 
 def save_session_to_redis(session_id, data, expiry=86400):
