@@ -100,6 +100,20 @@ This project is a Research Assistant Chatbot designed to provide an intuitive le
    - Log in with your student credentials.
    - Ask questions and receive answers from the chatbot.
 
+
+## Architecture Diagram
+
+Below is the architecture diagram for the Research Assistant Chatbot:
+![Architecture Diagram](assets/diagram.png)
+
+The architecture highlights the following components:
+1. **Frontend**: Streamlit application for user interaction.
+2. **Authentication**: Role-based access control using SQLite Cloud.
+3. **Knowledge Base**: Data enrichment from uploaded papers and websites.
+4. **LangChain Agents**: For retrieving information from Wikipedia and ArXiv when required.
+5. **Redis**: For storing conversation history and managing user sessions.
+6. **Backend**: Python application managing the chatbot logic and external integrations.
+
 ## Future Enhancements
 
 - Add support for additional APIs for broader information retrieval.
