@@ -104,6 +104,7 @@ This project is a Research Assistant Chatbot designed to provide an intuitive le
 ## Architecture Diagram
 
 Below is the architecture diagram for the Research Assistant Chatbot:
+
 ![Architecture Diagram](assets/diagram.png)
 
 The architecture highlights the following components:
