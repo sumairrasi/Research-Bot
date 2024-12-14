@@ -115,6 +115,12 @@ The architecture highlights the following components:
 5. **Redis**: For storing conversation history and managing user sessions.
 6. **Backend**: Python application managing the chatbot logic and external integrations.
 
+🔗 Check it out:
+
+Streamlit Demo: [App](https://research-bot-eqrcrrl27muuwoyyvvefk8.streamlit.app/)
+
+Looking forward to your thoughts and feedback! 🙌 
+
 ## Future Enhancements
 
 - Add support for additional APIs for broader information retrieval.
