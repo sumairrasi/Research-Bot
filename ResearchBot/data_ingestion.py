@@ -9,8 +9,8 @@ import bs4
 
 
 class DataIngestion(ChatModel):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,*args, **kwargs):
+        super().__init__(*args, **kwargs)
     
     def document_loading(self,path):
         loader = PyPDFLoader(file_path=path)
