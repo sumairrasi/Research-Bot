@@ -47,6 +47,8 @@ def app():
         st.session_state.user = session_data.get('user', None)
         print(f"Session restored: {session_data}")
     else:
+        redis_client.delete(st.session_state.session_id) 
+        st.session_state.clear()
         print("No session data found in Redis.")
 
     st.title("Welcome to the :green[Learning Class]")
@@ -58,8 +60,9 @@ def app():
 
         if st.button('Logout'):
             redis_client.delete(st.session_state.session_id)
-            st.session_state.logged_in = False
-            st.session_state.user = None
+            st.session_state.clear()
+            # st.session_state.logged_in = False
+            # st.session_state.user = None
             st.success("You have logged out successfully.")
             st.rerun()
     else:
