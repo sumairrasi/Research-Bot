@@ -8,7 +8,7 @@ import os
 
 def create_connection():
     try:
-        conn = sqlitecloud.connect(st.secrets['DB_URL'])
+        conn = sqlitecloud.connect(os.environ.get('DB_URL'))
         if conn.is_connected():
             print("DB connected..")
             return conn
