@@ -17,6 +17,7 @@ This project is a Research Assistant Chatbot designed to provide an intuitive le
 
    - Maintains conversation context for meaningful and dynamic interactions.
    - Helps in providing continuity in multi-turn conversations.
+   - Stores conversation threads for each user using Redis.
 3. **Authentication System**:
 
    - Uses SQLite Cloud to differentiate between student and teacher roles.
@@ -44,12 +45,14 @@ This project is a Research Assistant Chatbot designed to provide an intuitive le
 3. **Conversation Continuity**:
 
    - Conversational history ensures the bot remembers the context, enabling multi-turn interactions.
+   - Redis is used to store and retrieve conversation threads for each user.
 
 ## Technologies Used
 
 - **Python**: Core programming language.
 - **LangChain**: For creating agents and integrating external tools.
 - **SQLite Cloud**: For managing authentication and role-based access.
+- **Redis**: For storing conversation threads and managing session data.
 - **Wikipedia API**: For querying Wikipedia.
 - **ArXiv API**: For retrieving academic research papers.
 
@@ -57,7 +60,7 @@ This project is a Research Assistant Chatbot designed to provide an intuitive le
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-github-username>/research-assistant-chatbot.git
+   git clone https://github.com/sumairrasi/Research-Bot.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -67,7 +70,21 @@ This project is a Research Assistant Chatbot designed to provide an intuitive le
    ```bash
    pip install -r requirements.txt
    ```
-4. Run the application:
+4. Configure environment variables:
+   ```bash
+   GROQ_API_KEY=<your-groq-api-key>
+   LANGCHAIN_API_KEY=<your-langchain-api-key>
+   HF_TOKEN=<your-huggingface-token>
+   LANGCHAIN_ENDPOINT=<your-langchain-endpoint>
+   LANGCHAIN_PROJECT=<your-langchain-project-name>
+   PINECONE_API_KEY=<your-pinecone-api-key>
+   PINECONE_INDEX_NAME=<your-pinecone-index-name>
+   REDIS_HOST=<your-redis-host>
+   REDIS_PASSWORD=<your-redis-password>
+   REDIS_PORT=<your-redis-port>
+   DB_URL=<your-database-url>
+   ```
+5. Run the application:
    ```bash
    streamlit run main.py
    ```
@@ -99,6 +116,6 @@ Contributions are welcome! Please submit a pull request or open an issue for dis
 
 ---
 
-For any questions or support, please feel free to contact [Your Name](mailto:your.email@example.com).
+For any questions or support, please feel free to contact me at [sumairrazi585@gmail.com](mailto:sumairrazi585@gmail.com).
 
 Happy Learning!
