@@ -1,5 +1,5 @@
 from streamlit_option_menu import option_menu
-import about, account, home
+from ResearchBot.app import about, account, home
 import streamlit as st
 import random
 

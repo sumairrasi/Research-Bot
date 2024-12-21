@@ -1,11 +1,10 @@
-from cache import save_session_to_redis,load_session_from_redis,redis_client
-from database import login_user,register_user,initialize_database
+from ResearchBot.database.cache import save_session_to_redis,redis_client,generate_new_session_id
+from ResearchBot.database.database import login_user,register_user,initialize_database
 from streamlit_lottie import st_lottie 
 from pathlib import Path
 import streamlit as st
 import redis
 import json
-import uuid
 
 
 def app():
@@ -31,20 +30,10 @@ def app():
         st.error("Redis server is not running. Please start the Redis server.")
         return
 
-    if 'session_id' not in st.session_state:
-        saved_session_id = redis_client.get('last_session_id')
-        if saved_session_id:
-            st.session_state.session_id = saved_session_id
-            print(f"Recovered session ID from Redis: {saved_session_id}")
-        else:
-            st.session_state.session_id = str(uuid.uuid4())
-            redis_client.set('last_session_id', st.session_state.session_id)
-            print(f"New session ID created and saved to Redis: {st.session_state.session_id}")
-
-    session_data = load_session_from_redis(st.session_state.session_id)
-    if not session_data:  # No session found or expired
-        redis_client.delete(st.session_state.session_id)  # Clean up expired session
-        st.session_state.clear()
+    if 'session_id' not in st.session_state or st.session_state.session_id is None:
+        # Handle the case when the session_id is not initialized or expired
+        st.session_state.session_id = generate_new_session_id()  # Generate a new session ID
+        print(f"New session ID generated: {st.session_state.session_id}")
 
     st.title("Welcome to the :green[Learning Class]")
 
